@@ -41,25 +41,7 @@ public class PersonController{
 		this.personService = personService;
 	}
 	
-	// @GetMapping("/current")
-	// public List<String> getCurrentUserRoles() {
-		// List<String> rolesList = new ArrayList<>();
-
-		// Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		// if (authentication != null && authentication.isAuthenticated()) {
-			// Get the user's authorities (roles)
-			// for (GrantedAuthority authority : authentication.getAuthorities()) {
-				// rolesList.add(authority.getAuthority());
-			// }
-		// }
-
-		// return rolesList;
-	// }
-	// @PostMapping("/login")
-	// public ResponseEntity<Void> login() {
-
-		// return ResponseEntity.ok().build();
-	// }
+	
 	@PostMapping
 	public ResponseEntity<PersonDto> createPerson(@RequestBody PersonDto personDto){
 		PersonDto createdPerson = personService.createPerson(personDto);
@@ -172,15 +154,4 @@ public class PersonController{
 		}
 	}
 
-	 // @GetMapping("/admin")
-	 // public String adminPage() {
-		 // Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		 // if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
-//			 The user has the ADMIN role, so allow them to access the page
-			 // return "admin-page";
-		 // } else {
-//			 The user does not have the ADMIN role, so redirect them to the access denied page
-			 // return "redirect:/access-denied";
-		 // }
-	 // }
 }
