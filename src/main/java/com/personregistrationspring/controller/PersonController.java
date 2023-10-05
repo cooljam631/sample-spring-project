@@ -42,13 +42,13 @@ public class PersonController{
 	}
 	
 	
-	@PostMapping
+	@PostMapping("/create")
 	public ResponseEntity<PersonDto> createPerson(@RequestBody PersonDto personDto){
 		PersonDto createdPerson = personService.createPerson(personDto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdPerson);
 	}
 	
-	@PutMapping("/{personId}")
+	@PutMapping("/update/{personId}")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<PersonDto> updatePerson(@PathVariable int personId, @RequestBody PersonDto updatedPerson){
 		try{
